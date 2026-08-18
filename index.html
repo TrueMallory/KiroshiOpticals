@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiroshi Opticals — Distribuidora de armações</title>
+<meta name="description" content="Kiroshi Opticals — distribuidora de armações. Atacado para óticas e revendedores, varejo para o consumidor final.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --soft:#f7f7f7;
+  --soft2:#f0f0f0;
+  --line:#e7e7e7;
+  --line2:#d4d4d4;
+  --txt:#111111;
+  --muted:#6e6e6e;
+  --dim:#a0a0a0;
+  --maxw:1200px;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:var(--font);font-size:15px;font-weight:400;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit}
+::selection{background:#111;color:#fff}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+.lbl{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.hd{display:flex;align-items:center;height:84px;gap:36px}
+.hd nav{display:flex;gap:30px;margin-left:auto}
+.hd nav a{font-size:14px;color:var(--muted);transition:color .18s}
+.hd nav a:hover{color:var(--txt)}
+.hd-act{display:flex;align-items:center;gap:18px;margin-left:auto}
+.hd nav+.hd-act{margin-left:0}
+
+/* ---------- logo ---------- */
+.logo{display:flex;flex-direction:column;gap:3px;line-height:1;user-select:none;flex-shrink:0}
+.logo-top{display:flex;align-items:center;font-weight:500;font-size:21px;letter-spacing:.02em}
+.logo-o{
+  display:inline-flex;width:.88em;height:.88em;border:2px solid currentColor;
+  border-radius:50%;position:relative;margin:0 .03em;transform:translateY(-1px);
+}
+.logo-o:before{content:'';position:absolute;top:-2.5px;right:-1px;width:.32em;height:.32em;border-radius:50%;background:currentColor}
+.logo-rule{height:1.5px;background:currentColor;width:100%}
+.logo-sub{font-size:8.5px;font-weight:400;letter-spacing:.46em;text-indent:.46em;text-align:center}
+
+/* ---------- mode ---------- */
+.mode{display:flex;gap:2px;font-size:12px}
+.mode button{padding:6px 12px;color:var(--dim);border-radius:2px;transition:all .18s}
+.mode button.on{background:var(--txt);color:#fff}
+.mode button:not(.on):hover{color:var(--txt)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:13.5px;font-weight:500;padding:13px 26px;border-radius:2px;
+  background:var(--txt);color:#fff;transition:opacity .18s;white-space:nowrap;
+}
+.btn:hover{opacity:.78}
+.btn-o{background:transparent;color:var(--txt);box-shadow:inset 0 0 0 1px var(--line2)}
+.btn-o:hover{opacity:1;box-shadow:inset 0 0 0 1px var(--txt)}
+.btn-block{width:100%}
+.btn:disabled{opacity:.28;cursor:not-allowed}
+.btn:disabled:hover{opacity:.28}
+.lnk{font-size:13.5px;color:var(--muted);border-bottom:1px solid var(--line2);padding-bottom:2px;transition:all .18s}
+.lnk:hover{color:var(--txt);border-color:var(--txt)}
+.icon-btn{display:flex;align-items:center;gap:6px;font-size:13.5px;transition:opacity .18s}
+.icon-btn:hover{opacity:.6}
+.cart-n{font-variant-numeric:tabular-nums;color:var(--dim)}
+
+/* ---------- hero ---------- */
+.hero{padding:110px 0 96px}
+.hero h1{font-size:clamp(34px,5.2vw,62px);font-weight:400;line-height:1.14;letter-spacing:-.035em;max-width:16ch;margin-bottom:26px}
+.hero .lead{font-size:17px;color:var(--muted);max-width:46ch;margin-bottom:38px;font-weight:300}
+.hero-cta{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.stats{display:flex;gap:64px;flex-wrap:wrap;margin-top:92px;padding-top:34px;border-top:1px solid var(--line)}
+.stat-n{font-size:27px;font-weight:400;letter-spacing:-.03em;line-height:1.2}
+.stat-l{font-size:12.5px;color:var(--dim);margin-top:2px}
+
+/* ---------- section ---------- */
+section{padding:96px 0}
+.sec-hd{margin-bottom:52px;max-width:52ch}
+.sec-hd .lbl{margin-bottom:16px;display:block}
+h2{font-size:clamp(25px,3.2vw,36px);font-weight:400;line-height:1.2;letter-spacing:-.03em}
+.sec-hd p{color:var(--muted);margin-top:14px;font-weight:300}
+
+/* ---------- filters ---------- */
+.filters{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-end;margin-bottom:44px}
+.fg{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fg .lbl{font-size:10px}
+.filters select,.filters input[type=search]{
+  background:transparent;border:none;border-bottom:1px solid var(--line);
+  color:var(--txt);padding:7px 22px 7px 0;font-size:14px;outline:none;
+  transition:border-color .18s;min-width:132px;border-radius:0;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%23a0a0a0' stroke-width='1.2'/></svg>");
+  background-repeat:no-repeat;background-position:right 2px center;
+}
+.filters input[type=search]{background-image:none;min-width:180px;padding-right:0}
+.filters select:focus,.filters input:focus{border-color:var(--txt)}
+.fend{margin-left:auto;display:flex;align-items:center;gap:20px;padding-bottom:8px}
+.count{font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums}
+.clr{font-size:13px;color:var(--dim);transition:color .18s}
+.clr:hover{color:var(--txt)}
+
+/* ---------- grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:44px 28px}
+.card{display:flex;flex-direction:column;cursor:pointer}
+.card-img{
+  position:relative;aspect-ratio:4/3;background:var(--soft);
+  display:flex;align-items:center;justify-content:center;padding:26px;
+  margin-bottom:18px;overflow:hidden;transition:background .25s;
+}
+.card:hover .card-img{background:var(--soft2)}
+.card-img svg{width:100%;height:auto;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.card:hover .card-img svg{transform:scale(1.045)}
+.tagnew{position:absolute;top:14px;left:14px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.tagout{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(247,247,247,.72);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);
+}
+.card-t{font-size:16px;font-weight:500;letter-spacing:-.01em;line-height:1.3}
+.card-m{font-size:13px;color:var(--dim);margin-top:1px}
+.card-sw{display:flex;gap:5px;margin-top:11px}
+.sw{width:11px;height:11px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.card-p{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:13px}
+.price{font-size:16px;font-weight:500;letter-spacing:-.01em;white-space:nowrap}
+.price-old{font-size:13px;color:var(--dim);text-decoration:line-through;margin-right:7px;font-weight:400}
+.price-from{display:block;font-size:11px;color:var(--dim);letter-spacing:.05em;font-weight:400}
+.addl{font-size:13px;color:var(--muted);border-bottom:1px solid var(--line2);padding-bottom:1px;transition:all .18s;white-space:nowrap}
+.addl:hover{color:var(--txt);border-color:var(--txt)}
+.addl:disabled{opacity:.35;cursor:not-allowed}
+.nores{grid-column:1/-1;padding:60px 0;color:var(--dim);text-align:center}
+
+/* ---------- atacado ---------- */
+.b2b{display:grid;grid-template-columns:1.25fr 1fr;gap:76px;align-items:start}
+.b2b h2{margin-bottom:18px}
+.b2b>div>p{color:var(--muted);margin-bottom:30px;font-weight:300;max-width:44ch}
+.blist{list-style:none;display:flex;flex-direction:column}
+.blist li{padding:16px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted);font-weight:300}
+.blist li b{color:var(--txt);font-weight:500}
+.b2b-cta{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.tiers{list-style:none}
+.tier{display:flex;justify-content:space-between;align-items:baseline;padding:17px 0;border-top:1px solid var(--line)}
+.tier:last-child{border-bottom:1px solid var(--line)}
+.tier-q{font-size:14px;color:var(--muted);font-weight:300}
+.tier-d{font-size:19px;font-weight:400;letter-spacing:-.03em}
+.note{font-size:12.5px;color:var(--dim);line-height:1.6;margin-top:18px;font-weight:300}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:44px}
+.step .lbl{display:block;margin-bottom:14px}
+.step h4{font-size:16px;font-weight:500;margin-bottom:8px;letter-spacing:-.01em}
+.step p{color:var(--muted);font-size:14px;font-weight:300}
+
+/* ---------- faq ---------- */
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{
+  padding:22px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;
+  gap:24px;align-items:baseline;font-size:16px;font-weight:400;transition:opacity .18s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{opacity:.6}
+.faq summary:after{content:'+';color:var(--dim);font-size:17px;flex-shrink:0;transition:transform .22s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{padding:0 0 24px;color:var(--muted);max-width:70ch;font-size:14px;font-weight:300}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:64px 0 34px}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:48px;margin-bottom:64px}
+.f-grid h5{margin-bottom:18px}
+.f-grid ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-grid a{font-size:14px;color:var(--muted);transition:color .18s}
+.f-grid a:hover{color:var(--txt)}
+.f-about p{color:var(--muted);font-size:14px;margin:20px 0 10px;max-width:32ch;font-weight:300}
+.f-cnpj{font-size:12.5px;color:var(--dim)}
+.nl{display:flex;margin-top:14px;border-bottom:1px solid var(--line2)}
+.nl input{flex:1;background:none;border:none;padding:9px 0;font-size:14px;outline:none;min-width:0}
+.nl button{font-size:13px;color:var(--muted);padding:0 0 0 12px;transition:color .18s}
+.nl button:hover{color:var(--txt)}
+.f-bot{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--dim)}
+
+/* ---------- overlay / drawer / modal ---------- */
+.ov{position:fixed;inset:0;background:rgba(255,255,255,.75);backdrop-filter:blur(3px);z-index:90;opacity:0;pointer-events:none;transition:opacity .26s}
+.ov.on{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);
+  border-left:1px solid var(--line);z-index:100;transform:translateX(101%);
+  transition:transform .34s cubic-bezier(.3,.9,.3,1);display:flex;flex-direction:column;
+}
+.drawer.on{transform:translateX(0)}
+.dr-hd{padding:26px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.dr-hd h3{font-size:15px;font-weight:500;letter-spacing:-.01em}
+.x{width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:17px;transition:color .18s;flex-shrink:0}
+.x:hover{color:var(--txt)}
+.dr-b{flex:1;overflow-y:auto;padding:8px 28px}
+.dr-f{padding:24px 28px;border-top:1px solid var(--line)}
+.empty{padding:70px 0;color:var(--dim);text-align:center;font-size:14px}
+
+.ci{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.ci:last-child{border-bottom:none}
+.ci-img{width:74px;height:56px;flex-shrink:0;background:var(--soft);display:flex;align-items:center;justify-content:center;padding:8px}
+.ci-b{flex:1;min-width:0}
+.ci-t{font-size:14.5px;font-weight:500;letter-spacing:-.01em}
+.ci-m{font-size:12.5px;color:var(--dim);margin-bottom:10px}
+.qty{display:flex;align-items:center;width:max-content;box-shadow:inset 0 0 0 1px var(--line);border-radius:2px}
+.qty button{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;transition:color .15s}
+.qty button:hover{color:var(--txt)}
+.qty span{min-width:30px;text-align:center;font-size:13px;font-variant-numeric:tabular-nums}
+.ci-r{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;text-align:right}
+.ci-p{font-size:14.5px;font-weight:500;white-space:nowrap}
+.ci-u{font-size:11.5px;color:var(--dim)}
+.rm{font-size:12.5px;color:var(--dim);transition:color .18s}
+.rm:hover{color:var(--txt)}
+
+.sum{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.sum-r{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);font-weight:300}
+.sum-r.tot{font-size:17px;font-weight:500;color:var(--txt);padding-top:14px;border-top:1px solid var(--line);margin-top:4px}
+.msg{font-size:12.5px;color:var(--muted);background:var(--soft);padding:12px 14px;margin-bottom:16px;line-height:1.55;font-weight:300}
+
+.modal{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-48%);
+  width:min(900px,calc(100% - 32px));max-height:88vh;overflow-y:auto;
+  background:var(--bg);box-shadow:0 24px 80px -30px rgba(0,0,0,.28),0 0 0 1px var(--line);
+  z-index:100;opacity:0;pointer-events:none;transition:all .28s cubic-bezier(.3,.9,.3,1);
+}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.md{display:grid;grid-template-columns:1fr 1fr}
+.md-img{background:var(--soft);display:flex;align-items:center;justify-content:center;padding:56px;min-height:320px}
+.md-img svg{width:100%}
+.md-b{padding:44px;position:relative}
+.md-b .x{position:absolute;top:18px;right:18px}
+.md-b h3{font-size:25px;font-weight:400;letter-spacing:-.03em;padding-right:40px;line-height:1.2}
+.md-sku{font-size:12.5px;color:var(--dim);margin-top:5px;margin-bottom:22px}
+.md-desc{color:var(--muted);font-size:14px;margin-bottom:26px;font-weight:300}
+.md-blk{margin-bottom:26px}
+.md-blk .lbl{display:block;margin-bottom:12px}
+.csrow{display:flex;gap:10px;flex-wrap:wrap}
+.csw{width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);position:relative;transition:transform .18s}
+.csw:hover{transform:scale(1.1)}
+.csw.on:after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--txt)}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin-bottom:28px}
+.spec div{padding:11px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.spec dt{font-size:13px;color:var(--dim);font-weight:300}
+.spec dd{font-size:13px;font-weight:500;white-space:nowrap}
+.md-price{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.md-price .price{font-size:26px;font-weight:400;letter-spacing:-.03em}
+.md-price span.u{font-size:13px;color:var(--dim);font-weight:300}
+
+/* ---------- form ---------- */
+.field{margin-bottom:22px}
+.field label{display:block;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.field input,.field select{
+  width:100%;background:none;border:none;border-bottom:1px solid var(--line);
+  padding:8px 0;font-size:14.5px;outline:none;transition:border-color .18s;border-radius:0;
+  appearance:none;-webkit-appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%23a0a0a0' stroke-width='1.2'/></svg>");
+  background-repeat:no-repeat;background-position:right 2px center;
+}
+.field input:focus,.field select:focus{border-color:var(--txt)}
+
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(90px);
+  background:var(--txt);color:#fff;padding:13px 22px;border-radius:2px;z-index:120;
+  font-size:13.5px;transition:transform .3s cubic-bezier(.3,1.1,.4,1);max-width:calc(100% - 32px);
+}
+.toast.on{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:960px){
+  .b2b{grid-template-columns:1fr;gap:52px}
+  .md{grid-template-columns:1fr}
+  .md-img{min-height:240px;padding:40px}
+  .md-b{padding:32px}
+  .f-grid{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:720px){
+  .wrap{padding:0 20px}
+  .hd{height:68px;gap:16px}
+  .hd nav{display:none}
+  .hd-act{gap:14px}
+  .logo-top{font-size:18px}
+  .logo-sub{font-size:7.5px;letter-spacing:.38em;text-indent:.38em}
+  .mode button{padding:6px 9px;font-size:11.5px}
+  .hero{padding:64px 0 56px}
+  .stats{margin-top:56px;gap:36px 44px}
+  section{padding:64px 0}
+  .sec-hd{margin-bottom:36px}
+  .filters{gap:18px}
+  .fg{flex:1 1 130px}
+  .filters select,.filters input[type=search]{min-width:0;width:100%}
+  .fend{margin-left:0;width:100%;justify-content:space-between;padding-bottom:0}
+  .grid{grid-template-columns:1fr 1fr;gap:32px 16px}
+  .card-img{padding:16px;margin-bottom:13px}
+  .card-t{font-size:14.5px}
+  .card-m{font-size:12px}
+  .card-p{flex-direction:column;align-items:flex-start;gap:7px}
+  .price{font-size:15px}
+  .steps{gap:32px}
+  .f-grid{grid-template-columns:1fr;gap:36px}
+  .dr-b,.dr-hd,.dr-f{padding-left:20px;padding-right:20px}
+  .spec{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a href="#top" class="logo" aria-label="Kiroshi Opticals">
+      <span class="logo-top">KIR<span class="logo-o"></span>SHI</span>
+      <span class="logo-rule"></span>
+      <span class="logo-sub">OPTICALS</span>
+    </a>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#atacado">Atacado</a>
+      <a href="#como">Como funciona</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <div class="hd-act">
+      <div class="mode" role="group" aria-label="Modo de compra">
+        <button id="mVarejo" class="on" onclick="setMode('varejo')">Varejo</button>
+        <button id="mAtacado" onclick="setMode('atacado')">Atacado</button>
+      </div>
+      <div class="hd-act" id="authArea"></div>
+      <button class="icon-btn" onclick="openCart()">Carrinho <span class="cart-n" id="cartCount">(0)</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero wrap">
+  <h1>Armações que definem o seu ponto de vista.</h1>
+  <p class="lead">Distribuidora de armações para óticas, revendedores e consumidor final. Acetato, metal, titânio e TR-90 — sem lentes, sem intermediário.</p>
+  <div class="hero-cta">
+    <a href="#catalogo" class="btn">Ver catálogo</a>
+    <a href="#atacado" class="lnk">Sou revendedor</a>
+  </div>
+  <div class="stats">
+    <div><div class="stat-n">1.200+</div><div class="stat-l">Modelos ativos</div></div>
+    <div><div class="stat-n">48h</div><div class="stat-l">Expedição média</div></div>
+    <div><div class="stat-n">12 meses</div><div class="stat-l">Garantia</div></div>
+    <div><div class="stat-n">−45%</div><div class="stat-l">Desconto máximo</div></div>
+  </div>
+</div>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">Catálogo</span>
+      <h2>Coleção completa</h2>
+      <p>Todas as armações são vendidas sem lentes, compatíveis com grau, multifocal e bloqueio de luz azul.</p>
+    </div>
+
+    <div class="filters">
+      <div class="fg">
+        <label class="lbl" for="fSearch">Buscar</label>
+        <input type="search" id="fSearch" placeholder="Modelo, SKU, material" oninput="render()">
+      </div>
+      <div class="fg">
+        <label class="lbl" for="fShape">Formato</label>
+        <select id="fShape" onchange="render()"><option value="">Todos</option></select>
+      </div>
+      <div class="fg">
+        <label class="lbl" for="fMat">Material</label>
+        <select id="fMat" onchange="render()"><option value="">Todos</option></select>
+      </div>
+      <div class="fg">
+        <label class="lbl" for="fGen">Gênero</label>
+        <select id="fGen" onchange="render()"><option value="">Todos</option></select>
+      </div>
+      <div class="fg">
+        <label class="lbl" for="fSort">Ordenar</label>
+        <select id="fSort" onchange="render()">
+          <option value="rel">Relevância</option>
+          <option value="asc">Menor preço</option>
+          <option value="desc">Maior preço</option>
+          <option value="new">Lançamentos</option>
+        </select>
+      </div>
+      <div class="fend">
+        <span class="count" id="count"></span>
+        <button class="clr" onclick="clearF()">Limpar</button>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="atacado">
+  <div class="wrap b2b">
+    <div>
+      <span class="lbl">Programa de revenda</span>
+      <h2 style="margin-top:16px">Preço de distribuidora para óticas e revendedores</h2>
+      <p>Cadastre seu CNPJ e desbloqueie a tabela de atacado em todo o catálogo. Sem taxa de adesão, sem exclusividade, sem mix obrigatório.</p>
+      <ul class="blist">
+        <li><b>Pedido mínimo de 10 peças</b> — pode misturar modelos e cores livremente.</li>
+        <li><b>Faturamento em até 30 dias</b> para clientes com cadastro aprovado.</li>
+        <li><b>Troca garantida</b> de peças com defeito de fábrica em até 90 dias.</li>
+        <li><b>Expositor de balcão gratuito</b> em pedidos acima de 50 peças.</li>
+      </ul>
+      <div class="b2b-cta">
+        <button class="btn" onclick="openB2B()">Criar cadastro</button>
+        <button class="lnk" onclick="setMode('atacado');document.getElementById('catalogo').scrollIntoView()">Ver tabela de atacado</button>
+      </div>
+    </div>
+    <div>
+      <span class="lbl">Faixas de desconto</span>
+      <ul class="tiers" style="margin-top:16px">
+        <li class="tier"><span class="tier-q">10 a 29 peças</span><span class="tier-d">−25%</span></li>
+        <li class="tier"><span class="tier-q">30 a 59 peças</span><span class="tier-d">−32%</span></li>
+        <li class="tier"><span class="tier-q">60 a 99 peças</span><span class="tier-d">−38%</span></li>
+        <li class="tier"><span class="tier-q">100 peças ou mais</span><span class="tier-d">−45%</span></li>
+      </ul>
+      <p class="note">Descontos aplicados automaticamente no carrinho quando o modo Atacado está ativo. Calculado sobre o total de peças do pedido, não por modelo.</p>
+    </div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">Processo</span>
+      <h2>Como funciona</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="lbl">01</span><h4>Monte o pedido</h4><p>Filtre por formato, material e gênero. Adicione no modo varejo ou atacado.</p></div>
+      <div class="step"><span class="lbl">02</span><h4>Envie pelo WhatsApp</h4><p>O carrinho gera um pedido formatado. Você confirma e recebe o link de pagamento ou o boleto.</p></div>
+      <div class="step"><span class="lbl">03</span><h4>Expedição em 48h</h4><p>Separação, conferência óptica e envio com código de rastreio para todo o Brasil.</p></div>
+      <div class="step"><span class="lbl">04</span><h4>Garantia de 12 meses</h4><p>Cobertura contra defeito de fábrica em dobradiça, solda e camada de pintura.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="lbl">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Vocês vendem lentes ou fazem o grau?</summary><p>Não. A Kiroshi Opticals é uma distribuidora exclusiva de armações. Todas as peças são enviadas com lente de demonstração e podem ser levadas a qualquer laboratório óptico para a montagem do grau. É isso que mantém nosso preço abaixo do de uma ótica tradicional.</p></details>
+      <details><summary>Preciso de CNPJ para comprar no atacado?</summary><p>Sim. O modo Atacado exige cadastro com CNPJ ativo e inscrição estadual. A aprovação leva até 1 dia útil. Sem CNPJ, você continua comprando normalmente no modo Varejo, unidade por unidade.</p></details>
+      <details><summary>Qual o pedido mínimo?</summary><p>No varejo não há mínimo. No atacado, 10 peças por pedido, podendo misturar modelos, cores e materiais livremente para atingir a faixa de desconto.</p></details>
+      <details><summary>As armações são compatíveis com lentes multifocais?</summary><p>A maioria sim. Cada ficha de produto informa a altura vertical da lente — o valor recomendado para multifocal é acima de 30mm. Os modelos abaixo disso ficam marcados como indicados para visão simples.</p></details>
+      <details><summary>Como funciona a troca e a garantia?</summary><p>Você tem 7 dias corridos para arrependimento (CDC) no varejo. A garantia de 12 meses cobre defeito de fábrica em dobradiça, solda e camada de pintura. Não cobre quebra por queda, torção manual ou contato com produtos químicos.</p></details>
+      <details><summary>Qual o prazo de entrega?</summary><p>Expedição em até 48h úteis após a confirmação do pagamento. O prazo de transporte varia de 2 a 10 dias úteis conforme a região. Frete grátis para pedidos acima de R$ 899.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-about">
+        <div class="logo">
+          <span class="logo-top">KIR<span class="logo-o"></span>SHI</span>
+          <span class="logo-rule"></span>
+          <span class="logo-sub">OPTICALS</span>
+        </div>
+        <p>Distribuidora de armações para óticas, revendedores e consumidor final.</p>
+        <div class="f-cnpj">CNPJ 00.000.000/0001-00</div>
+      </div>
+      <div>
+        <h5 class="lbl">Catálogo</h5>
+        <ul>
+          <li><a href="#catalogo" onclick="quickFilter('fShape','Redondo')">Redondas</a></li>
+          <li><a href="#catalogo" onclick="quickFilter('fShape','Quadrado')">Quadradas</a></li>
+          <li><a href="#catalogo" onclick="quickFilter('fShape','Gatinho')">Gatinho</a></li>
+          <li><a href="#catalogo" onclick="quickFilter('fShape','Aviador')">Aviador</a></li>
+          <li><a href="#catalogo" onclick="quickFilter('fMat','Titânio')">Titânio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="lbl">Institucional</h5>
+        <ul>
+          <li><a href="#atacado">Seja revendedor</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#faq">Trocas e garantia</a></li>
+          <li><a href="#faq">Prazos de entrega</a></li>
+          <li><a href="#faq">Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="lbl">Novidades</h5>
+        <p style="color:var(--muted);font-size:14px;font-weight:300">Lançamentos e tabela de atacado atualizada.</p>
+        <form class="nl" onsubmit="event.preventDefault();toast('Inscrição registrada.');this.reset()">
+          <input type="email" placeholder="seu@email.com" required aria-label="E-mail">
+          <button type="submit">Assinar</button>
+        </form>
+        <div class="note">Atendimento seg a sex, 9h às 18h.</div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <div>© 2026 Kiroshi Opticals</div>
+      <div>Site de demonstração · dados e preços fictícios</div>
+    </div>
+  </div>
+</footer>
+
+<div class="ov" id="ov" onclick="closeAll()"></div>
+
+<aside class="drawer" id="cart" aria-label="Carrinho">
+  <div class="dr-hd"><h3>Seu pedido</h3><button class="x" onclick="closeAll()" aria-label="Fechar">✕</button></div>
+  <div class="dr-b" id="cartBody"></div>
+  <div class="dr-f" id="cartFoot"></div>
+</aside>
+
+<aside class="drawer" id="b2b" aria-label="Cadastro de revendedor">
+  <div class="dr-hd"><h3>Cadastro de revendedor</h3><button class="x" onclick="closeAll()" aria-label="Fechar">✕</button></div>
+  <div class="dr-b">
+    <form id="b2bForm" onsubmit="submitB2B(event)" style="padding-top:22px">
+      <div class="field"><label>Razão social</label><input required id="rzSocial" placeholder="Ótica Exemplo Ltda"></div>
+      <div class="field"><label>CNPJ</label><input required id="cnpj" placeholder="00.000.000/0001-00" maxlength="18"></div>
+      <div class="field"><label>Inscrição estadual</label><input required id="ie" placeholder="000.000.000.000"></div>
+      <div class="field"><label>Responsável</label><input required id="responsavel" placeholder="Nome completo"></div>
+      <div class="field"><label>E-mail</label><input type="email" required id="b2bEmail" placeholder="compras@empresa.com.br"></div>
+      <div class="field"><label>WhatsApp</label><input required id="b2bWhats" placeholder="(00) 00000-0000"></div>
+      <div class="field"><label>Volume estimado por mês</label>
+        <select required id="volume">
+          <option value="">Selecione</option>
+          <option>10 a 29 peças</option><option>30 a 59 peças</option>
+          <option>60 a 99 peças</option><option>100 peças ou mais</option>
+        </select>
+      </div>
+      <button class="btn btn-block" type="submit">Enviar cadastro</button>
+      <div class="note">Aprovação em até 1 dia útil.</div>
+    </form>
+  </div>
+</aside>
+
+<aside class="drawer" id="login" aria-label="Entrar">
+  <div class="dr-hd"><h3>Entrar</h3><button class="x" onclick="closeAll()" aria-label="Fechar">✕</button></div>
+  <div class="dr-b">
+    <form id="loginForm" onsubmit="submitLogin(event)" style="padding-top:22px">
+      <div class="field"><label>E-mail</label><input type="email" required id="loginEmail" placeholder="voce@email.com"></div>
+      <div class="field"><label>Senha</label><input type="password" required id="loginPassword" placeholder="••••••••"></div>
+      <button class="btn btn-block" type="submit">Entrar</button>
+      <div class="note" id="loginMsg"></div>
+      <div class="note" style="margin-top:18px">Não tem conta? <a class="lnk" href="#" onclick="event.preventDefault();closeAll(true);show('signup')">Criar conta</a></div>
+      <div class="note" style="margin-top:8px"><a class="lnk" href="#" onclick="event.preventDefault();forgotPassword()">Esqueci minha senha</a></div>
+    </form>
+  </div>
+</aside>
+
+<aside class="drawer" id="signup" aria-label="Criar conta">
+  <div class="dr-hd"><h3>Criar conta</h3><button class="x" onclick="closeAll()" aria-label="Fechar">✕</button></div>
+  <div class="dr-b">
+    <form id="signupForm" onsubmit="submitSignup(event)" style="padding-top:22px">
+      <div class="field"><label>Nome</label><input required id="signupName" placeholder="Seu nome"></div>
+      <div class="field"><label>E-mail</label><input type="email" required id="signupEmail" placeholder="voce@email.com"></div>
+      <div class="field"><label>Senha</label><input type="password" required minlength="6" id="signupPassword" placeholder="Mínimo 6 caracteres"></div>
+      <div class="field"><label>Confirmar senha</label><input type="password" required id="signupPassword2" placeholder="Repita a senha"></div>
+      <button class="btn btn-block" type="submit">Criar conta</button>
+      <div class="note" id="signupMsg"></div>
+      <div class="note" style="margin-top:18px">Já tem conta? <a class="lnk" href="#" onclick="event.preventDefault();closeAll(true);show('login')">Entrar</a></div>
+    </form>
+  </div>
+</aside>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="md" id="modalBody"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+/* =================== SUPABASE =================== */
+const SUPABASE_URL = 'https://knnoftxhdmaybymasvkb.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_V5R83hJ9I4PTrYvRLHn97Q_2t9mSawJ';
+
+let sb = null;
+try{
+  if(SUPABASE_URL && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes('SUA_ANON_KEY')){
+    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+}catch(err){ console.warn('Supabase não configurado:', err); }
+
+/* =================== DADOS =================== */
+const COLORS={
+  preto:{n:'Preto Onyx',h:'#1a1a1a'},
+  chumbo:{n:'Chumbo',h:'#2e2e2e'},
+  grafite:{n:'Grafite',h:'#484848'},
+  fume:{n:'Fumê',h:'#6b6b6b'},
+  niquel:{n:'Níquel',h:'#949494'},
+  prata:{n:'Prata',h:'#bcbcbc'},
+  cristal:{n:'Cristal',h:'#d2d2d2'},
+  branco:{n:'Branco Gelo',h:'#e2e2e2'}
+};
+
+const PRODUCTS=[
+  {sku:'KO-1001',n:'Netrunner',shape:'Redondo',mat:'Metal',gen:'Unissex',price:389,old:499,cols:['prata','grafite','niquel'],w:138,l:48,b:21,t:145,new:1,hot:1,stock:120,desc:'Aro redondo fino em metal com ponte dupla e plaquetas ajustáveis. Silhueta clássica, leitura contemporânea.'},
+  {sku:'KO-1002',n:'Chromatic',shape:'Quadrado',mat:'Acetato',gen:'Unissex',price:429,old:0,cols:['preto','fume','cristal'],w:142,l:52,b:19,t:145,new:1,hot:0,stock:84,desc:'Acetato italiano de 6mm com biselamento manual nas laterais. Volume marcante sem peso, ideal para rostos ovais e alongados.'},
+  {sku:'KO-1003',n:'Sandevistan',shape:'Aviador',mat:'Titânio',gen:'Masculino',price:749,old:899,cols:['grafite','prata','niquel'],w:145,l:56,b:16,t:145,new:0,hot:1,stock:36,desc:'Titânio beta puro, 11 gramas. Dobradiça flex integrada e acabamento anodizado resistente a suor e maresia.'},
+  {sku:'KO-1004',n:'Lumen',shape:'Gatinho',mat:'Acetato',gen:'Feminino',price:399,old:0,cols:['fume','chumbo','prata'],w:136,l:51,b:18,t:140,new:1,hot:0,stock:97,desc:'Gatinho suave com aro superior levemente elevado. Desenho que alonga o olhar sem exagero, para uso diário.'},
+  {sku:'KO-1005',n:'Blackwall',shape:'Quadrado',mat:'TR-90',gen:'Unissex',price:279,old:349,cols:['preto','grafite','chumbo'],w:140,l:53,b:20,t:143,new:0,hot:1,stock:210,desc:'TR-90 injetado, ultraleve e praticamente indestrutível. A melhor relação custo-benefício para giro rápido em balcão.'},
+  {sku:'KO-1006',n:'Optic Nerve',shape:'Hexagonal',mat:'Metal',gen:'Unissex',price:459,old:0,cols:['niquel','grafite','branco'],w:139,l:50,b:21,t:145,new:1,hot:0,stock:54,desc:'Geometria hexagonal em fio de metal de 1.2mm. Ponte reta com apoio em silicone antiderrapante.'},
+  {sku:'KO-1007',n:'Militech',shape:'Aviador',mat:'Metal',gen:'Masculino',price:349,old:0,cols:['grafite','chumbo','niquel'],w:144,l:57,b:15,t:145,new:0,hot:0,stock:130,desc:'Aviador tradicional com haste reta e ponte de barra dupla. Acabamento fosco que disfarça marcas de uso.'},
+  {sku:'KO-1008',n:'Delamain',shape:'Oval',mat:'Titânio',gen:'Unissex',price:689,old:0,cols:['prata','grafite','niquel'],w:137,l:49,b:20,t:142,new:0,hot:0,stock:41,desc:'Oval minimalista em titânio escovado. Aro de perfil reduzido para quem quer a armação quase invisível no rosto.'},
+  {sku:'KO-1009',n:'Voodoo',shape:'Quadrado',mat:'Acetato',gen:'Masculino',price:449,old:529,cols:['preto','fume','chumbo'],w:146,l:55,b:18,t:148,new:0,hot:1,stock:73,desc:'Quadrado largo com aro grosso e haste de 5mm. Presença forte, indicado para rostos largos e quadrados.'},
+  {sku:'KO-1010',n:'Kabuki',shape:'Redondo',mat:'Acetato',gen:'Unissex',price:369,old:0,cols:['cristal','fume','branco'],w:135,l:47,b:22,t:142,new:0,hot:0,stock:158,desc:'Redondo em acetato transparente polido. Ponte alta em chave, referência direta às armações dos anos 60.'},
+  {sku:'KO-1011',n:'Arasaka',shape:'Retangular',mat:'Titânio',gen:'Masculino',price:799,old:0,cols:['preto','grafite','prata'],w:143,l:54,b:17,t:145,new:1,hot:1,stock:22,desc:'Topo de linha. Titânio japonês, dobradiça sem parafuso e revestimento IP resistente a risco. Numerada individualmente.'},
+  {sku:'KO-1012',n:'Silverhand',shape:'Redondo',mat:'Metal',gen:'Unissex',price:319,old:0,cols:['prata','grafite','preto'],w:134,l:46,b:23,t:140,new:0,hot:0,stock:186,desc:'Redondo pequeno com aro de 46mm. Referência retrô, boa saída em público jovem e no e-commerce.'},
+  {sku:'KO-1013',n:'Vermilion',shape:'Gatinho',mat:'Acetato',gen:'Feminino',price:479,old:559,cols:['chumbo','niquel','preto'],w:137,l:52,b:17,t:140,new:0,hot:1,stock:64,desc:'Gatinho pronunciado com detalhe metálico na dobradiça. Peça de vitrine, alto apelo visual.'},
+  {sku:'KO-1014',n:'Trauma Team',shape:'Retangular',mat:'TR-90',gen:'Unissex',price:259,old:0,cols:['preto','chumbo','grafite'],w:141,l:53,b:19,t:143,new:0,hot:0,stock:240,desc:'Entrada de linha em TR-90 com haste flexível 180°. Excelente para infantil-juvenil e uso intenso.'},
+  {sku:'KO-1015',n:'Nomad',shape:'Hexagonal',mat:'Acetato',gen:'Unissex',price:409,old:0,cols:['fume','chumbo','cristal'],w:140,l:51,b:20,t:145,new:1,hot:0,stock:88,desc:'Hexagonal em acetato com nuance mesclada — cada peça tem um veio levemente diferente.'},
+  {sku:'KO-1016',n:'Halo',shape:'Oval',mat:'Metal',gen:'Feminino',price:339,old:0,cols:['niquel','branco','prata'],w:133,l:48,b:21,t:140,new:0,hot:0,stock:0,desc:'Oval delicado em fio de metal fino com plaquetas de silicone. Peso de apenas 9 gramas.'},
+];
+
+const WHATS='5500000000000'; // <-- troque pelo número real (DDI+DDD+número, só dígitos)
+
+/* =================== ESTADO =================== */
+let mode='varejo', cart=[], modalSku=null, modalColor=null;
+let session=null, reseller=null;
+const TIERS=[{min:100,d:.45},{min:60,d:.38},{min:30,d:.32},{min:10,d:.25}];
+const MIN_B2B=10;
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const P=sku=>PRODUCTS.find(p=>p.sku===sku);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* =================== SVG =================== */
+function frameSVG(shape,hex){
+  const lw=3.2, id='g'+Math.random().toString(36).slice(2,8);
+  const L={x:14,y:16,w:74,h:52}, R={x:132,y:16,w:74,h:52};
+  const mk=o=>{
+    switch(shape){
+      case 'Redondo':    return `<circle cx="${o.x+o.w/2}" cy="${o.y+o.h/2}" r="${o.h/2}"/>`;
+      case 'Oval':       return `<ellipse cx="${o.x+o.w/2}" cy="${o.y+o.h/2}" rx="${o.w/2}" ry="${o.h/2-3}"/>`;
+      case 'Quadrado':   return `<rect x="${o.x}" y="${o.y}" width="${o.w}" height="${o.h}" rx="9"/>`;
+      case 'Retangular': return `<rect x="${o.x}" y="${o.y+6}" width="${o.w}" height="${o.h-12}" rx="6"/>`;
+      case 'Gatinho':    return `<path d="M${o.x} ${o.y+16} Q${o.x+2} ${o.y+4} ${o.x+22} ${o.y+3} L${o.x+o.w-6} ${o.y} Q${o.x+o.w+4} ${o.y-2} ${o.x+o.w} ${o.y+16} Q${o.x+o.w+2} ${o.y+o.h+4} ${o.x+o.w/2} ${o.y+o.h+3} Q${o.x-3} ${o.y+o.h+2} ${o.x} ${o.y+16} Z"/>`;
+      case 'Aviador':    return `<path d="M${o.x+2} ${o.y+6} L${o.x+o.w-2} ${o.y+4} Q${o.x+o.w+2} ${o.y+6} ${o.x+o.w-8} ${o.y+o.h-2} Q${o.x+o.w-16} ${o.y+o.h+8} ${o.x+o.w/2-6} ${o.y+o.h+5} Q${o.x+4} ${o.y+o.h-4} ${o.x+2} ${o.y+6} Z"/>`;
+      case 'Hexagonal':  return `<path d="M${o.x+18} ${o.y+2} L${o.x+o.w-18} ${o.y+2} L${o.x+o.w} ${o.y+o.h/2} L${o.x+o.w-18} ${o.y+o.h-2} L${o.x+18} ${o.y+o.h-2} L${o.x} ${o.y+o.h/2} Z"/>`;
+      default:           return `<rect x="${o.x}" y="${o.y}" width="${o.w}" height="${o.h}" rx="8"/>`;
+    }
+  };
+  const lens=mk(L)+mk(R);
+  const by = shape==='Aviador'?22:(shape==='Gatinho'?26:34);
+  return `<svg viewBox="0 0 220 92" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Armação ${esc(shape)}">
+  <defs><linearGradient id="${id}" x1="0" y1="0" x2="0.35" y2="1">
+    <stop offset="0%" stop-color="${shade(hex,18)}"/><stop offset="55%" stop-color="${hex}"/><stop offset="100%" stop-color="${shade(hex,-24)}"/>
+  </linearGradient></defs>
+  <g fill="rgba(0,0,0,.05)">${lens}</g>
+  <g fill="none" stroke="url(#${id})" stroke-width="${lw}" stroke-linejoin="round">${lens}</g>
+  <path d="M88 ${by+4} Q110 ${by-6} 132 ${by+4}" fill="none" stroke="url(#${id})" stroke-width="${lw}" stroke-linecap="round"/>
+  <path d="M14 ${by+2} L2 ${by-4}" stroke="url(#${id})" stroke-width="${lw}" stroke-linecap="round"/>
+  <path d="M206 ${by+2} L218 ${by-4}" stroke="url(#${id})" stroke-width="${lw}" stroke-linecap="round"/>
+</svg>`;
+}
+function shade(hex,p){
+  let c=hex.replace('#','');
+  if(c.length===3)c=c.split('').map(x=>x+x).join('');
+  const r=parseInt(c.slice(0,2),16),g=parseInt(c.slice(2,4),16),b=parseInt(c.slice(4,6),16);
+  const f=x=>Math.max(0,Math.min(255,Math.round(x+(p/100)*(p>0?255-x:x))));
+  return '#'+[f(r),f(g),f(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+
+/* =================== PREÇOS =================== */
+const totalUnits=()=>cart.reduce((s,i)=>s+i.qty,0);
+function tierDiscount(){
+  if(mode!=='atacado')return 0;
+  const u=totalUnits();
+  for(const t of TIERS) if(u>=t.min) return t.d;
+  return 0;
+}
+const unitPrice=p=>mode==='atacado'?p.price*0.75:p.price;
+const subtotal=()=>cart.reduce((s,i)=>s+P(i.sku).price*i.qty,0);
+const discountValue=()=>subtotal()*tierDiscount();
+function shipping(){const t=subtotal()-discountValue();return (t>=899||t===0)?0:39.9}
+const grandTotal=()=>subtotal()-discountValue()+shipping();
+
+/* =================== RENDER =================== */
+function applyMode(m){
+  mode=m;
+  document.getElementById('mVarejo').classList.toggle('on',m==='varejo');
+  document.getElementById('mAtacado').classList.toggle('on',m==='atacado');
+  render();renderCart();
+  if(modalSku)openProduct(modalSku,modalColor);
+}
+
+function setMode(m){
+  if(m==='atacado'){
+    if(!sb){ toast('Atacado indisponível: Supabase não configurado.'); return; }
+    if(!session){ closeAll(true); show('login'); toast('Entre ou crie uma conta para acessar o atacado.'); return; }
+    if(!reseller){ closeAll(true); show('b2b'); toast('Complete seu cadastro de revendedor.'); return; }
+    if(reseller.status==='pending'){ toast('Seu cadastro está em análise.'); return; }
+    if(reseller.status==='rejected'){ toast('Cadastro não aprovado. Fale com nosso time.'); return; }
+  }
+  applyMode(m);
+  toast(m==='atacado'?'Modo atacado · a partir de −25%':'Modo varejo');
+}
+
+function filtered(){
+  const q=document.getElementById('fSearch').value.trim().toLowerCase();
+  const sh=document.getElementById('fShape').value;
+  const ma=document.getElementById('fMat').value;
+  const ge=document.getElementById('fGen').value;
+  const so=document.getElementById('fSort').value;
+  let r=PRODUCTS.filter(p=>{
+    if(sh&&p.shape!==sh)return false;
+    if(ma&&p.mat!==ma)return false;
+    if(ge&&p.gen!==ge&&p.gen!=='Unissex')return false;
+    if(q&&!(p.n+' '+p.sku+' '+p.shape+' '+p.mat+' '+p.gen+' '+p.desc).toLowerCase().includes(q))return false;
+    return true;
+  });
+  if(so==='asc')r.sort((a,b)=>a.price-b.price);
+  else if(so==='desc')r.sort((a,b)=>b.price-a.price);
+  else if(so==='new')r.sort((a,b)=>b.new-a.new);
+  else r.sort((a,b)=>(b.hot*2+b.new)-(a.hot*2+a.new));
+  return r;
+}
+
+function render(){
+  const list=filtered(), g=document.getElementById('grid');
+  document.getElementById('count').textContent=list.length+(list.length===1?' modelo':' modelos');
+  if(!list.length){g.innerHTML='<div class="nores">Nenhuma armação encontrada.</div>';return}
+  g.innerHTML=list.map(p=>{
+    const c=COLORS[p.cols[0]], up=unitPrice(p), out=p.stock===0;
+    return `<article class="card" onclick="openProduct('${p.sku}')">
+      <div class="card-img">
+        ${p.new&&!out?'<span class="tagnew">Novo</span>':''}
+        ${frameSVG(p.shape,c.h)}
+        ${out?'<span class="tagout">Esgotado</span>':''}
+      </div>
+      <div class="card-t">${esc(p.n)}</div>
+      <div class="card-m">${esc(p.shape)} · ${esc(p.mat)}</div>
+      <div class="card-sw">${p.cols.map(k=>`<span class="sw" style="background:${COLORS[k].h}" title="${esc(COLORS[k].n)}"></span>`).join('')}</div>
+      <div class="card-p">
+        <div>
+          ${mode==='atacado'?'<span class="price-from">a partir de</span>':''}
+          <span class="price">${(p.old&&mode==='varejo')?`<span class="price-old">${brl(p.old)}</span>`:''}${brl(up)}</span>
+        </div>
+        <button class="addl" ${out?'disabled':''} onclick="event.stopPropagation();add('${p.sku}','${p.cols[0]}',${mode==='atacado'?10:1})">${out?'Indisponível':'Adicionar'}</button>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function clearF(){
+  ['fSearch','fShape','fMat','fGen'].forEach(i=>document.getElementById(i).value='');
+  document.getElementById('fSort').value='rel';
+  render();
+}
+function quickFilter(id,val){clearF();document.getElementById(id).value=val;render()}
+
+/* =================== MODAL =================== */
+function openProduct(sku,color){
+  const p=P(sku); modalSku=sku; modalColor=color||p.cols[0];
+  const c=COLORS[modalColor], up=unitPrice(p), out=p.stock===0;
+  document.getElementById('modalBody').innerHTML=`
+    <div class="md-img">${frameSVG(p.shape,c.h)}</div>
+    <div class="md-b">
+      <button class="x" onclick="closeAll()" aria-label="Fechar">✕</button>
+      <h3>${esc(p.n)}</h3>
+      <div class="md-sku">${p.sku} · ${out?'Esgotado':p.stock+' em estoque'}</div>
+      <p class="md-desc">${esc(p.desc)}</p>
+      <div class="md-blk">
+        <span class="lbl">Cor — ${esc(c.n)}</span>
+        <div class="csrow">${p.cols.map(k=>`<button class="csw ${k===modalColor?'on':''}" style="background:${COLORS[k].h}" title="${esc(COLORS[k].n)}" onclick="openProduct('${p.sku}','${k}')"></button>`).join('')}</div>
+      </div>
+      <div class="spec">
+        <div><dt>Formato</dt><dd>${esc(p.shape)}</dd></div>
+        <div><dt>Material</dt><dd>${esc(p.mat)}</dd></div>
+        <div><dt>Largura frontal</dt><dd>${p.w} mm</dd></div>
+        <div><dt>Lente/ponte</dt><dd>${p.l}/${p.b} mm</dd></div>
+        <div><dt>Haste</dt><dd>${p.t} mm</dd></div>
+        <div><dt>Multifocal</dt><dd>${p.l>=50?'Compatível':'Visão simples'}</dd></div>
+      </div>
+      <div class="md-price">
+        ${(p.old&&mode==='varejo')?`<span class="price-old" style="font-size:15px">${brl(p.old)}</span>`:''}
+        <span class="price">${brl(up)}</span>
+        <span class="u">por unidade · ${mode==='atacado'?'atacado':'varejo'}</span>
+      </div>
+      ${mode==='atacado'?'<div class="msg">Mínimo de 10 peças por pedido, podendo misturar modelos. O desconto da faixa é aplicado no carrinho.</div>':''}
+      <button class="btn btn-block" ${out?'disabled':''} onclick="add('${p.sku}','${modalColor}',${mode==='atacado'?10:1});closeAll()">${out?'Produto esgotado':'Adicionar ao pedido'}</button>
+      <div class="note">Vendida sem lente de grau. Acompanha estojo rígido, flanela e certificado de garantia.</div>
+    </div>`;
+  document.getElementById('modal').classList.add('on');
+  document.getElementById('ov').classList.add('on');
+  document.body.classList.add('locked');
+}
+
+/* =================== CARRINHO =================== */
+function add(sku,color,q){
+  const p=P(sku); if(p.stock===0)return;
+  const ex=cart.find(i=>i.sku===sku&&i.color===color);
+  if(ex)ex.qty+=q; else cart.push({sku,color,qty:q});
+  renderCart();
+  toast(`${p.n} · ${COLORS[color].n} — ${q} un.`);
+}
+function chg(i,d){cart[i].qty+=d; if(cart[i].qty<1)cart.splice(i,1); renderCart()}
+function rm(i){cart.splice(i,1);renderCart()}
+
+function renderCart(){
+  const u=totalUnits();
+  document.getElementById('cartCount').textContent='('+u+')';
+  const b=document.getElementById('cartBody'), f=document.getElementById('cartFoot');
+  if(!cart.length){
+    b.innerHTML='<div class="empty">Seu pedido está vazio.</div>';
+    f.innerHTML='<button class="btn btn-o btn-block" onclick="closeAll()">Continuar navegando</button>';
+    return;
+  }
+  b.innerHTML=cart.map((i,idx)=>{
+    const p=P(i.sku), c=COLORS[i.color];
+    return `<div class="ci">
+      <div class="ci-img">${frameSVG(p.shape,c.h)}</div>
+      <div class="ci-b">
+        <div class="ci-t">${esc(p.n)}</div>
+        <div class="ci-m">${p.sku} · ${esc(c.n)}</div>
+        <div class="qty">
+          <button onclick="chg(${idx},-1)" aria-label="Diminuir">−</button>
+          <span>${i.qty}</span>
+          <button onclick="chg(${idx},1)" aria-label="Aumentar">+</button>
+        </div>
+      </div>
+      <div class="ci-r">
+        <div><div class="ci-p">${brl(p.price*i.qty)}</div><div class="ci-u">${brl(p.price)}/un.</div></div>
+        <button class="rm" onclick="rm(${idx})">Remover</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  const d=tierDiscount(), dv=discountValue(), sh=shipping();
+  const under = mode==='atacado' && u<MIN_B2B;
+  f.innerHTML=`
+    ${under?`<div class="msg">Faltam ${MIN_B2B-u} peça(s) para o pedido mínimo de atacado.</div>`:''}
+    ${(mode==='atacado'&&!under)?`<div class="msg">Faixa aplicada — ${u} peças, ${(d*100).toFixed(0)}% de desconto.</div>`:''}
+    <div class="sum">
+      <div class="sum-r"><span>Subtotal (${u} un.)</span><span>${brl(subtotal())}</span></div>
+      ${dv>0?`<div class="sum-r"><span>Desconto atacado (${(d*100).toFixed(0)}%)</span><span>− ${brl(dv)}</span></div>`:''}
+      <div class="sum-r"><span>Frete</span><span>${sh===0?'Grátis':brl(sh)}</span></div>
+      <div class="sum-r tot"><span>Total</span><span>${brl(grandTotal())}</span></div>
+    </div>
+    <button class="btn btn-block" ${under?'disabled':''} onclick="checkout()">Finalizar pelo WhatsApp</button>
+    <div class="note">${mode==='atacado'?'Itens listados pelo preço cheio; o desconto é abatido no total. ':''}Nenhum pagamento é feito neste site.</div>`;
+}
+
+function checkout(){
+  const d=tierDiscount();
+  let m='*PEDIDO KIROSHI OPTICALS*\n';
+  m+=`Modo: ${mode==='atacado'?'ATACADO (revenda)':'VAREJO'}\n------------------------------\n`;
+  cart.forEach(i=>{
+    const p=P(i.sku);
+    m+=`${i.qty}x ${p.n} (${p.sku}) - ${COLORS[i.color].n}\n   ${brl(p.price)} un. = ${brl(p.price*i.qty)}\n`;
+  });
+  m+=`------------------------------\nTotal de peças: ${totalUnits()}\nSubtotal: ${brl(subtotal())}\n`;
+  if(d>0)m+=`Desconto atacado (${(d*100).toFixed(0)}%): -${brl(discountValue())}\n`;
+  m+=`Frete: ${shipping()===0?'Grátis':brl(shipping())}\n*TOTAL: ${brl(grandTotal())}*`;
+  window.open(`https://wa.me/${WHATS}?text=${encodeURIComponent(m)}`,'_blank');
+}
+
+/* =================== UI =================== */
+function show(id){
+  document.getElementById(id).classList.add('on');
+  document.getElementById('ov').classList.add('on');
+  document.body.classList.add('locked');
+}
+function openCart(){closeAll(true);show('cart')}
+function openB2B(){
+  if(!sb){ toast('Cadastro indisponível: Supabase não configurado.'); return; }
+  if(!session){ closeAll(true); show('login'); toast('Entre ou crie uma conta para se cadastrar como revendedor.'); return; }
+  closeAll(true);show('b2b');
+}
+function closeAll(silent){
+  ['cart','b2b','login','signup'].forEach(i=>document.getElementById(i).classList.remove('on'));
+  document.getElementById('modal').classList.remove('on');
+  modalSku=null;
+  if(!silent){
+    document.getElementById('ov').classList.remove('on');
+    document.body.classList.remove('locked');
+  }
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+
+let tt;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('on');
+  clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),2400);
+}
+
+async function submitB2B(e){
+  e.preventDefault();
+  if(!sb||!session){ toast('Entre para enviar o cadastro.'); return; }
+  const payload={
+    user_id: session.user.id,
+    razao_social: document.getElementById('rzSocial').value,
+    cnpj: document.getElementById('cnpj').value,
+    inscricao_estadual: document.getElementById('ie').value,
+    responsavel: document.getElementById('responsavel').value,
+    email: document.getElementById('b2bEmail').value,
+    whatsapp: document.getElementById('b2bWhats').value,
+    volume_estimado: document.getElementById('volume').value,
+    status: 'pending'
+  };
+  const { data, error } = await sb.from('resellers').upsert(payload,{onConflict:'user_id'}).select().single();
+  if(error){ toast('Erro ao enviar cadastro: '+error.message); return; }
+  reseller=data;
+  closeAll();
+  toast('Cadastro enviado. Retorno em até 1 dia útil.');
+  document.getElementById('b2bForm').reset();
+}
+
+document.getElementById('cnpj').addEventListener('input',function(){
+  let v=this.value.replace(/\D/g,'').slice(0,14);
+  v=v.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3')
+     .replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2');
+  this.value=v;
+});
+
+/* =================== AUTH =================== */
+async function initAuth(){
+  renderAuthUI();
+  if(!sb)return;
+  const { data:{ session:s } } = await sb.auth.getSession();
+  session=s;
+  await loadReseller();
+  renderAuthUI();
+  sb.auth.onAuthStateChange(async (_event,s)=>{
+    session=s;
+    await loadReseller();
+    if(!session && mode==='atacado')applyMode('varejo');
+    renderAuthUI();
+  });
+}
+
+async function loadReseller(){
+  reseller=null;
+  if(!sb||!session)return;
+  const { data } = await sb.from('resellers').select('*').eq('user_id',session.user.id).maybeSingle();
+  reseller=data;
+}
+
+function renderAuthUI(){
+  const el=document.getElementById('authArea');
+  if(session){
+    el.innerHTML=`<span class="icon-btn" style="cursor:default" title="${esc(session.user.email)}">${esc(session.user.email.split('@')[0])}</span><button class="icon-btn" onclick="logout()">Sair</button>`;
+  }else{
+    el.innerHTML=`<button class="icon-btn" onclick="closeAll(true);show('login')">Entrar</button>`;
+  }
+}
+
+async function submitLogin(e){
+  e.preventDefault();
+  const msg=document.getElementById('loginMsg');
+  if(!sb){ msg.textContent='Supabase não configurado.'; return; }
+  msg.textContent='Entrando...';
+  const email=document.getElementById('loginEmail').value;
+  const password=document.getElementById('loginPassword').value;
+  const { error } = await sb.auth.signInWithPassword({email,password});
+  if(error){ msg.textContent=error.message; return; }
+  msg.textContent='';
+  closeAll();
+  document.getElementById('loginForm').reset();
+  toast('Login realizado.');
+}
+
+async function submitSignup(e){
+  e.preventDefault();
+  const msg=document.getElementById('signupMsg');
+  if(!sb){ msg.textContent='Supabase não configurado.'; return; }
+  const name=document.getElementById('signupName').value;
+  const email=document.getElementById('signupEmail').value;
+  const password=document.getElementById('signupPassword').value;
+  const password2=document.getElementById('signupPassword2').value;
+  if(password!==password2){ msg.textContent='As senhas não coincidem.'; return; }
+  msg.textContent='Criando conta...';
+  const { data, error } = await sb.auth.signUp({email,password,options:{data:{name}}});
+  if(error){ msg.textContent=error.message; return; }
+  msg.textContent='';
+  document.getElementById('signupForm').reset();
+  closeAll();
+  toast(data.session?'Conta criada com sucesso.':'Conta criada. Verifique seu e-mail para confirmar.');
+}
+
+async function forgotPassword(){
+  if(!sb){ toast('Supabase não configurado.'); return; }
+  const email=document.getElementById('loginEmail').value.trim();
+  if(!email){ document.getElementById('loginMsg').textContent='Informe seu e-mail acima primeiro.'; return; }
+  const { error } = await sb.auth.resetPasswordForEmail(email);
+  document.getElementById('loginMsg').textContent = error?error.message:'Enviamos um link de redefinição para seu e-mail.';
+}
+
+async function logout(){
+  if(!sb)return;
+  await sb.auth.signOut();
+  toast('Você saiu da conta.');
+}
+
+/* =================== INIT =================== */
+function fillSelect(id,key){
+  const s=document.getElementById(id);
+  [...new Set(PRODUCTS.map(p=>p[key]))].sort().forEach(v=>{
+    const o=document.createElement('option'); o.value=v; o.textContent=v; s.appendChild(o);
+  });
+}
+fillSelect('fShape','shape'); fillSelect('fMat','mat'); fillSelect('fGen','gen');
+render(); renderCart(); initAuth();
+</script>
+</body>
+</html>
