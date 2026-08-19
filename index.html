@@ -32,7 +32,7 @@ body{
 body.locked{overflow:hidden}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-input,select,textarea{font-family:inherit}
+input,select,textarea{font-family:inherit;color:inherit}
 ::selection{background:var(--txt);color:var(--bg)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 
@@ -132,6 +132,8 @@ h2{font-size:clamp(25px,3.2vw,36px);font-weight:400;line-height:1.2;letter-spaci
 .card:hover .card-img{background:var(--soft2)}
 .card-img svg{width:100%;height:auto;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
 .card:hover .card-img svg{transform:scale(1.045)}
+.card-img img{width:100%;height:100%;object-fit:contain;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.card:hover .card-img img{transform:scale(1.045)}
 .tagnew{position:absolute;top:14px;left:14px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
 .tagout{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
@@ -220,6 +222,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
 .ci{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
 .ci:last-child{border-bottom:none}
 .ci-img{width:74px;height:56px;flex-shrink:0;background:var(--soft);display:flex;align-items:center;justify-content:center;padding:8px}
+.ci-img img{width:100%;height:100%;object-fit:contain}
 .ci-b{flex:1;min-width:0}
 .ci-t{font-size:14.5px;font-weight:500;letter-spacing:-.01em}
 .ci-m{font-size:12.5px;color:var(--dim);margin-bottom:10px}
@@ -246,8 +249,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
 }
 .modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
 .md{display:grid;grid-template-columns:1fr 1fr}
-.md-img{background:var(--soft);display:flex;align-items:center;justify-content:center;padding:56px;min-height:320px}
+.md-img{background:var(--soft);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px;min-height:320px;gap:20px}
 .md-img svg{width:100%}
+.md-img img{width:100%;max-height:280px;object-fit:contain}
+.md-thumbs{display:flex;gap:10px}
+.md-thumb{width:52px;height:40px;background:var(--soft2);display:flex;align-items:center;justify-content:center;padding:4px;box-shadow:inset 0 0 0 1px var(--line2);transition:box-shadow .18s}
+.md-thumb.on{box-shadow:inset 0 0 0 2px var(--txt)}
+.md-thumb img{width:100%;height:100%;object-fit:contain}
 .md-b{padding:44px;position:relative}
 .md-b .x{position:absolute;top:18px;right:18px}
 .md-b h3{font-size:25px;font-weight:400;letter-spacing:-.03em;padding-right:40px;line-height:1.2}
@@ -497,6 +505,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
           <li><a href="#catalogo" onclick="quickFilter('fShape','Quadrado')">Quadradas</a></li>
           <li><a href="#catalogo" onclick="quickFilter('fShape','Gatinho')">Gatinho</a></li>
           <li><a href="#catalogo" onclick="quickFilter('fShape','Aviador')">Aviador</a></li>
+          <li><a href="#catalogo" onclick="quickFilter('fShape','Wayfarer')">Wayfarer</a></li>
           <li><a href="#catalogo" onclick="quickFilter('fMat','Titânio')">Titânio</a></li>
         </ul>
       </div>
@@ -576,6 +585,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
   <div class="dr-b">
     <form id="signupForm" onsubmit="submitSignup(event)" style="padding-top:22px">
       <div class="field"><label>Nome</label><input required id="signupName" placeholder="Seu nome"></div>
+      <div class="field"><label>CPF</label><input required id="signupCpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric"></div>
       <div class="field"><label>E-mail</label><input type="email" required id="signupEmail" placeholder="voce@email.com"></div>
       <div class="field"><label>Senha</label><input type="password" required minlength="6" id="signupPassword" placeholder="Mínimo 6 caracteres"></div>
       <div class="field"><label>Confirmar senha</label><input type="password" required id="signupPassword2" placeholder="Repita a senha"></div>
@@ -589,6 +599,31 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
 <aside class="drawer" id="orders" aria-label="Meus pedidos">
   <div class="dr-hd"><h3>Meus pedidos</h3><button class="x" onclick="closeAll()" aria-label="Fechar">✕</button></div>
   <div class="dr-b" id="ordersBody"></div>
+</aside>
+
+<aside class="drawer" id="profile" aria-label="Minha conta">
+  <div class="dr-hd"><h3>Minha conta</h3><button class="x" onclick="closeAll()" aria-label="Fechar">✕</button></div>
+  <div class="dr-b">
+    <form id="profileForm" onsubmit="submitProfile(event)" style="padding-top:22px">
+      <div class="field"><label>Nome</label><input required id="pfName" placeholder="Seu nome"></div>
+      <div class="field"><label>CPF</label><input required id="pfCpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric"></div>
+      <div class="field"><label>WhatsApp</label><input required id="pfWhats" placeholder="(00) 00000-0000"></div>
+      <div class="note" style="margin:22px 0 10px">Endereço de entrega</div>
+      <div class="field"><label>CEP</label><input required id="pfCep" placeholder="00000-000" maxlength="9" inputmode="numeric"></div>
+      <div class="field"><label>Rua</label><input required id="pfStreet" placeholder="Nome da rua"></div>
+      <div style="display:flex;gap:14px">
+        <div class="field" style="flex:1"><label>Número</label><input required id="pfNumber" placeholder="123"></div>
+        <div class="field" style="flex:2"><label>Complemento</label><input id="pfComplement" placeholder="Apto, bloco (opcional)"></div>
+      </div>
+      <div class="field"><label>Bairro</label><input required id="pfNeighborhood" placeholder="Bairro"></div>
+      <div style="display:flex;gap:14px">
+        <div class="field" style="flex:2"><label>Cidade</label><input required id="pfCity" placeholder="Cidade"></div>
+        <div class="field" style="flex:1"><label>UF</label><input required id="pfState" placeholder="UF" maxlength="2" style="text-transform:uppercase"></div>
+      </div>
+      <button class="btn btn-block" type="submit">Salvar alterações</button>
+      <div class="note" id="profileMsg"></div>
+    </form>
+  </div>
 </aside>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true"><div class="md" id="modalBody"></div></div>
@@ -618,7 +653,9 @@ const COLORS={
   niquel:{n:'Níquel',h:'#949494'},
   prata:{n:'Prata',h:'#bcbcbc'},
   cristal:{n:'Cristal',h:'#d2d2d2'},
-  branco:{n:'Branco Gelo',h:'#e2e2e2'}
+  branco:{n:'Branco Gelo',h:'#e2e2e2'},
+  dourado:{n:'Dourado',h:'#cea338'},
+  brancopreto:{n:'Branco e Preto',h:'#eef0ee'}
 };
 
 const PRODUCTS=[
@@ -638,6 +675,9 @@ const PRODUCTS=[
   {sku:'KO-1014',n:'Trauma Team',shape:'Retangular',mat:'TR-90',gen:'Unissex',price:30,old:0,cols:['preto','chumbo','grafite'],w:141,l:53,b:19,t:143,new:0,hot:0,stock:240,desc:'Entrada de linha em TR-90 com haste flexível 180°. Excelente para infantil-juvenil e uso intenso.'},
   {sku:'KO-1015',n:'Nomad',shape:'Hexagonal',mat:'Acetato',gen:'Unissex',price:30,old:0,cols:['fume','chumbo','cristal'],w:140,l:51,b:20,t:145,new:1,hot:0,stock:88,desc:'Hexagonal em acetato com nuance mesclada — cada peça tem um veio levemente diferente.'},
   {sku:'KO-1016',n:'Halo',shape:'Oval',mat:'Metal',gen:'Feminino',price:30,old:0,cols:['niquel','branco','prata'],w:133,l:48,b:21,t:140,new:0,hot:0,stock:0,desc:'Oval delicado em fio de metal fino com plaquetas de silicone. Peso de apenas 9 gramas.'},
+  {sku:'KO-2001',n:'Aviator Classic',shape:'Aviador',mat:'Metal',gen:'Unissex',price:899,old:1299,cols:['dourado'],w:140,l:58,b:14,t:135,new:1,hot:1,stock:34,desc:'Aviador Ray-Ban RB3025 original, armação em metal dourado com lente G-15 verde clássica. Ponte dupla, hastes finas e acabamento italiano — o modelo que definiu o formato aviador.',imgs:['assets/products/rb3025-aviador-dourado-1.jpeg','assets/products/rb3025-aviador-dourado-2.jpeg']},
+  {sku:'KO-2002',n:'Wayfarer Original',shape:'Wayfarer',mat:'Acetato',gen:'Unissex',price:799,old:1099,cols:['preto'],w:143,l:50,b:22,t:150,new:1,hot:1,stock:41,desc:'Ray-Ban RB2140 Original Wayfarer em acetato preto brilhante com lente G-15 verde. O ícone atemporal do design óptico, do mesmo jeito desde 1952.',imgs:['assets/products/rb2140-wayfarer-preto-1.jpeg','assets/products/rb2140-wayfarer-preto-2.jpeg']},
+  {sku:'KO-2003',n:'Wayfarer Bicolor',shape:'Wayfarer',mat:'Acetato',gen:'Unissex',price:849,old:1149,cols:['brancopreto'],w:143,l:50,b:22,t:150,new:1,hot:0,stock:19,desc:'Ray-Ban RB2140 Original Wayfarer em edição bicolor — parte superior branca e frente preta, com lente G-15 verde. Visual retrô com contraste marcante.',imgs:['assets/products/rb2140-wayfarer-branco-preto-1.jpeg']},
 ];
 
 const WHATS='5592994332941';
@@ -679,6 +719,10 @@ function frameSVG(shape,hex){
   <path d="M14 ${by+2} L2 ${by-4}" stroke="url(#${id})" stroke-width="${lw}" stroke-linecap="round"/>
   <path d="M206 ${by+2} L218 ${by-4}" stroke="url(#${id})" stroke-width="${lw}" stroke-linecap="round"/>
 </svg>`;
+}
+function productMedia(p,hex){
+  if(p.imgs&&p.imgs.length)return `<img src="${esc(p.imgs[0])}" alt="${esc(p.n)}" loading="lazy">`;
+  return frameSVG(p.shape,hex);
 }
 function shade(hex,p){
   let c=hex.replace('#','');
@@ -752,7 +796,7 @@ function render(){
     return `<article class="card" onclick="openProduct('${p.sku}')">
       <div class="card-img">
         ${p.new&&!out?'<span class="tagnew">Novo</span>':''}
-        ${frameSVG(p.shape,c.h)}
+        ${productMedia(p,c.h)}
         ${out?'<span class="tagout">Esgotado</span>':''}
       </div>
       <div class="card-t">${esc(p.n)}</div>
@@ -780,8 +824,11 @@ function quickFilter(id,val){clearF();document.getElementById(id).value=val;rend
 function openProduct(sku,color){
   const p=P(sku); modalSku=sku; modalColor=color||p.cols[0];
   const c=COLORS[modalColor], up=unitPrice(p), out=p.stock===0;
+  const hasImgs=p.imgs&&p.imgs.length;
+  const mainImg=hasImgs?`<img id="modalMainImg" src="${esc(p.imgs[0])}" alt="${esc(p.n)}">`:frameSVG(p.shape,c.h);
+  const thumbs=hasImgs&&p.imgs.length>1?`<div class="md-thumbs">${p.imgs.map((src,i)=>`<button class="md-thumb ${i===0?'on':''}" onclick="setModalImg(this,'${esc(src)}')" aria-label="Foto ${i+1}"><img src="${esc(src)}" alt=""></button>`).join('')}</div>`:'';
   document.getElementById('modalBody').innerHTML=`
-    <div class="md-img">${frameSVG(p.shape,c.h)}</div>
+    <div class="md-img">${mainImg}${thumbs}</div>
     <div class="md-b">
       <button class="x" onclick="closeAll()" aria-label="Fechar">✕</button>
       <h3>${esc(p.n)}</h3>
@@ -813,6 +860,12 @@ function openProduct(sku,color){
   document.body.classList.add('locked');
 }
 
+function setModalImg(btn,src){
+  document.getElementById('modalMainImg').src=src;
+  btn.parentElement.querySelectorAll('.md-thumb').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+}
+
 /* =================== CARRINHO =================== */
 function add(sku,color,q){
   const p=P(sku); if(p.stock===0)return;
@@ -836,7 +889,7 @@ function renderCart(){
   b.innerHTML=cart.map((i,idx)=>{
     const p=P(i.sku), c=COLORS[i.color];
     return `<div class="ci">
-      <div class="ci-img">${frameSVG(p.shape,c.h)}</div>
+      <div class="ci-img">${productMedia(p,c.h)}</div>
       <div class="ci-b">
         <div class="ci-t">${esc(p.n)}</div>
         <div class="ci-m">${p.sku} · ${esc(c.n)}</div>
@@ -1011,7 +1064,7 @@ function openB2B(){
   closeAll(true);show('b2b');
 }
 function closeAll(silent){
-  ['cart','b2b','login','signup','orders'].forEach(i=>document.getElementById(i).classList.remove('on'));
+  ['cart','b2b','login','signup','orders','profile'].forEach(i=>document.getElementById(i).classList.remove('on'));
   document.getElementById('modal').classList.remove('on');
   modalSku=null;
   if(!silent){
@@ -1057,6 +1110,32 @@ document.getElementById('cnpj').addEventListener('input',function(){
   this.value=v;
 });
 
+function maskCpf(v){
+  v=v.replace(/\D/g,'').slice(0,11);
+  return v.replace(/^(\d{3})(\d)/,'$1.$2').replace(/^(\d{3})\.(\d{3})(\d)/,'$1.$2.$3')
+    .replace(/\.(\d{3})(\d)/,'.$1-$2');
+}
+['signupCpf','pfCpf'].forEach(id=>{
+  document.getElementById(id).addEventListener('input',function(){ this.value=maskCpf(this.value); });
+});
+document.getElementById('pfCep').addEventListener('input',function(){
+  let v=this.value.replace(/\D/g,'').slice(0,8);
+  this.value=v.replace(/^(\d{5})(\d)/,'$1-$2');
+});
+document.getElementById('pfCep').addEventListener('blur',async function(){
+  const cep=this.value.replace(/\D/g,'');
+  if(cep.length!==8)return;
+  try{
+    const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const d=await r.json();
+    if(d.erro)return;
+    document.getElementById('pfStreet').value=d.logradouro||'';
+    document.getElementById('pfNeighborhood').value=d.bairro||'';
+    document.getElementById('pfCity').value=d.localidade||'';
+    document.getElementById('pfState').value=d.uf||'';
+  }catch(err){ /* CEP autofill opcional, ignora falha */ }
+});
+
 /* =================== AUTH =================== */
 async function initAuth(){
   renderAuthUI();
@@ -1083,10 +1162,58 @@ async function loadReseller(){
 function renderAuthUI(){
   const el=document.getElementById('authArea');
   if(session){
-    el.innerHTML=`<span class="icon-btn" style="cursor:default" title="${esc(session.user.email)}">${esc(session.user.email.split('@')[0])}</span><button class="icon-btn" onclick="openOrders()">Meus pedidos</button><button class="icon-btn" onclick="logout()">Sair</button>`;
+    el.innerHTML=`<span class="icon-btn" style="cursor:default" title="${esc(session.user.email)}">${esc(session.user.email.split('@')[0])}</span><button class="icon-btn" onclick="openProfile()">Minha conta</button><button class="icon-btn" onclick="openOrders()">Meus pedidos</button><button class="icon-btn" onclick="logout()">Sair</button>`;
   }else{
     el.innerHTML=`<button class="icon-btn" onclick="closeAll(true);show('login')">Entrar</button>`;
   }
+}
+
+async function openProfile(){
+  if(!sb){ toast('Indisponível: Supabase não configurado.'); return; }
+  if(!session){ closeAll(true); show('login'); toast('Entre para ver sua conta.'); return; }
+  closeAll(true); show('profile');
+  const msg=document.getElementById('profileMsg');
+  msg.textContent='Carregando...';
+  const { data, error } = await sb.from('profiles').select('*').eq('id',session.user.id).maybeSingle();
+  msg.textContent='';
+  const p=data||{};
+  document.getElementById('pfName').value=p.name||'';
+  document.getElementById('pfCpf').value=p.cpf?maskCpf(p.cpf):'';
+  document.getElementById('pfWhats').value=p.whatsapp||'';
+  document.getElementById('pfCep').value=p.cep||'';
+  document.getElementById('pfStreet').value=p.street||'';
+  document.getElementById('pfNumber').value=p.number||'';
+  document.getElementById('pfComplement').value=p.complement||'';
+  document.getElementById('pfNeighborhood').value=p.neighborhood||'';
+  document.getElementById('pfCity').value=p.city||'';
+  document.getElementById('pfState').value=p.state||'';
+  if(error)msg.textContent='Não foi possível carregar seus dados salvos.';
+}
+
+async function submitProfile(e){
+  e.preventDefault();
+  const msg=document.getElementById('profileMsg');
+  if(!sb||!session){ toast('Entre para salvar sua conta.'); return; }
+  msg.textContent='Salvando...';
+  const payload={
+    id: session.user.id,
+    name: document.getElementById('pfName').value,
+    cpf: document.getElementById('pfCpf').value,
+    whatsapp: document.getElementById('pfWhats').value,
+    cep: document.getElementById('pfCep').value,
+    street: document.getElementById('pfStreet').value,
+    number: document.getElementById('pfNumber').value,
+    complement: document.getElementById('pfComplement').value,
+    neighborhood: document.getElementById('pfNeighborhood').value,
+    city: document.getElementById('pfCity').value,
+    state: document.getElementById('pfState').value.toUpperCase(),
+    updated_at: new Date().toISOString()
+  };
+  const { error } = await sb.from('profiles').upsert(payload,{onConflict:'id'});
+  if(error){ msg.textContent='Erro ao salvar: '+error.message; return; }
+  msg.textContent='';
+  toast('Dados salvos com sucesso.');
+  closeAll();
 }
 
 async function openOrders(){
@@ -1136,12 +1263,13 @@ async function submitSignup(e){
   const msg=document.getElementById('signupMsg');
   if(!sb){ msg.textContent='Supabase não configurado.'; return; }
   const name=document.getElementById('signupName').value;
+  const cpf=document.getElementById('signupCpf').value;
   const email=document.getElementById('signupEmail').value;
   const password=document.getElementById('signupPassword').value;
   const password2=document.getElementById('signupPassword2').value;
   if(password!==password2){ msg.textContent='As senhas não coincidem.'; return; }
   msg.textContent='Criando conta...';
-  const { data, error } = await sb.auth.signUp({email,password,options:{data:{name}}});
+  const { data, error } = await sb.auth.signUp({email,password,options:{data:{name,cpf}}});
   if(error){ msg.textContent=error.message; return; }
   msg.textContent='';
   document.getElementById('signupForm').reset();
