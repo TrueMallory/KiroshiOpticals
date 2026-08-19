@@ -46,10 +46,25 @@ header{
 }
 .hd{display:flex;align-items:center;height:84px;gap:36px}
 .hd nav{display:flex;gap:30px;margin-left:auto}
-.hd nav a{font-size:14px;color:var(--muted);transition:color .18s}
+.hd nav a{font-size:14px;color:var(--muted);transition:color .18s;white-space:nowrap}
 .hd nav a:hover{color:var(--txt)}
-.hd-act{display:flex;align-items:center;gap:18px;margin-left:auto}
+.hd-act{display:flex;align-items:center;gap:18px;margin-left:auto;flex-shrink:0}
 .hd nav+.hd-act{margin-left:0}
+
+/* ---------- account menu ---------- */
+.acct{position:relative}
+.acct-menu{
+  position:absolute;top:calc(100% + 16px);right:0;min-width:176px;
+  background:var(--bg);box-shadow:0 0 0 1px var(--line),0 24px 60px -24px rgba(0,0,0,.6);
+  padding:6px;opacity:0;pointer-events:none;transform:translateY(-6px);
+  transition:opacity .18s,transform .18s;z-index:60;
+}
+.acct-menu.on{opacity:1;pointer-events:auto;transform:translateY(0)}
+.acct-menu button{display:block;width:100%;text-align:left;padding:11px 12px;font-size:13.5px;color:var(--muted);border-radius:2px;transition:all .15s;white-space:nowrap}
+.acct-menu button:hover{color:var(--txt);background:var(--soft)}
+.acct-caret{font-size:10px;color:var(--dim);transition:transform .18s}
+.acct-btn.on .acct-caret{transform:rotate(180deg)}
+.acct-label-short{display:none}
 
 /* ---------- logo ---------- */
 .logo{display:flex;flex-direction:column;gap:3px;line-height:1;user-select:none;flex-shrink:0}
@@ -82,7 +97,7 @@ header{
 .btn:disabled:hover{opacity:.28}
 .lnk{font-size:13.5px;color:var(--muted);border-bottom:1px solid var(--line2);padding-bottom:2px;transition:all .18s}
 .lnk:hover{color:var(--txt);border-color:var(--txt)}
-.icon-btn{display:flex;align-items:center;gap:6px;font-size:13.5px;transition:opacity .18s}
+.icon-btn{display:flex;align-items:center;gap:6px;font-size:13.5px;transition:opacity .18s;white-space:nowrap}
 .icon-btn:hover{opacity:.6}
 .cart-n{font-variant-numeric:tabular-nums;color:var(--dim)}
 
@@ -332,6 +347,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
   .f-grid{grid-template-columns:1fr;gap:36px}
   .dr-b,.dr-hd,.dr-f{padding-left:20px;padding-right:20px}
   .spec{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .acct-label-full{display:none}
+  .acct-label-short{display:inline}
+  .hd-act{gap:10px}
 }
 </style>
 </head>
@@ -1054,7 +1074,7 @@ function closeAll(silent){
     document.body.classList.remove('locked');
   }
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();closeAcctMenu();}});
 
 let tt;
 function toast(msg){
@@ -1144,11 +1164,31 @@ async function loadReseller(){
 function renderAuthUI(){
   const el=document.getElementById('authArea');
   if(session){
-    el.innerHTML=`<span class="icon-btn" style="cursor:default" title="${esc(session.user.email)}">${esc(session.user.email.split('@')[0])}</span><button class="icon-btn" onclick="openProfile()">Minha conta</button><button class="icon-btn" onclick="openOrders()">Meus pedidos</button><button class="icon-btn" onclick="logout()">Sair</button>`;
+    el.innerHTML=`<div class="acct">
+      <button class="icon-btn acct-btn" onclick="toggleAcctMenu(event)" title="${esc(session.user.email)}"><span class="acct-label-full">${esc(session.user.email.split('@')[0])}</span><span class="acct-label-short">Conta</span> <span class="acct-caret">▾</span></button>
+      <div class="acct-menu" id="acctMenu">
+        <button onclick="closeAcctMenu();openProfile()">Minha conta</button>
+        <button onclick="closeAcctMenu();openOrders()">Meus pedidos</button>
+        <button onclick="closeAcctMenu();logout()">Sair</button>
+      </div>
+    </div>`;
   }else{
     el.innerHTML=`<button class="icon-btn" onclick="closeAll(true);show('login')">Entrar</button>`;
   }
 }
+
+function toggleAcctMenu(e){
+  e.stopPropagation();
+  document.getElementById('acctMenu').classList.toggle('on');
+  e.currentTarget.classList.toggle('on');
+}
+function closeAcctMenu(){
+  const m=document.getElementById('acctMenu');
+  if(m)m.classList.remove('on');
+  const b=document.querySelector('.acct-btn');
+  if(b)b.classList.remove('on');
+}
+document.addEventListener('click',closeAcctMenu);
 
 async function openProfile(){
   if(!sb){ toast('Indisponível: Supabase não configurado.'); return; }
