@@ -372,7 +372,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
     <a href="#atacado" class="lnk">Sou revendedor</a>
   </div>
   <div class="stats">
-    <div><div class="stat-n">1.200+</div><div class="stat-l">Modelos ativos</div></div>
+    <div><div class="stat-n">100%</div><div class="stat-l">Ray-Ban originais</div></div>
     <div><div class="stat-n">48h</div><div class="stat-l">Expedição média</div></div>
     <div><div class="stat-n">12 meses</div><div class="stat-l">Garantia</div></div>
     <div><div class="stat-n">−45%</div><div class="stat-l">Desconto máximo</div></div>
@@ -501,12 +501,10 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px}
       <div>
         <h5 class="lbl">Catálogo</h5>
         <ul>
-          <li><a href="#catalogo" onclick="quickFilter('fShape','Redondo')">Redondas</a></li>
-          <li><a href="#catalogo" onclick="quickFilter('fShape','Quadrado')">Quadradas</a></li>
-          <li><a href="#catalogo" onclick="quickFilter('fShape','Gatinho')">Gatinho</a></li>
           <li><a href="#catalogo" onclick="quickFilter('fShape','Aviador')">Aviador</a></li>
           <li><a href="#catalogo" onclick="quickFilter('fShape','Wayfarer')">Wayfarer</a></li>
-          <li><a href="#catalogo" onclick="quickFilter('fMat','Titânio')">Titânio</a></li>
+          <li><a href="#catalogo" onclick="quickFilter('fMat','Metal')">Metal</a></li>
+          <li><a href="#catalogo" onclick="quickFilter('fMat','Acetato')">Acetato</a></li>
         </ul>
       </div>
       <div>
@@ -659,22 +657,6 @@ const COLORS={
 };
 
 const PRODUCTS=[
-  {sku:'KO-1001',n:'Netrunner',shape:'Redondo',mat:'Metal',gen:'Unissex',price:30,old:499,cols:['prata','grafite','niquel'],w:138,l:48,b:21,t:145,new:1,hot:1,stock:120,desc:'Aro redondo fino em metal com ponte dupla e plaquetas ajustáveis. Silhueta clássica, leitura contemporânea.'},
-  {sku:'KO-1002',n:'Chromatic',shape:'Quadrado',mat:'Acetato',gen:'Unissex',price:30,old:0,cols:['preto','fume','cristal'],w:142,l:52,b:19,t:145,new:1,hot:0,stock:84,desc:'Acetato italiano de 6mm com biselamento manual nas laterais. Volume marcante sem peso, ideal para rostos ovais e alongados.'},
-  {sku:'KO-1003',n:'Sandevistan',shape:'Aviador',mat:'Titânio',gen:'Masculino',price:30,old:899,cols:['grafite','prata','niquel'],w:145,l:56,b:16,t:145,new:0,hot:1,stock:36,desc:'Titânio beta puro, 11 gramas. Dobradiça flex integrada e acabamento anodizado resistente a suor e maresia.'},
-  {sku:'KO-1004',n:'Lumen',shape:'Gatinho',mat:'Acetato',gen:'Feminino',price:30,old:0,cols:['fume','chumbo','prata'],w:136,l:51,b:18,t:140,new:1,hot:0,stock:97,desc:'Gatinho suave com aro superior levemente elevado. Desenho que alonga o olhar sem exagero, para uso diário.'},
-  {sku:'KO-1005',n:'Blackwall',shape:'Quadrado',mat:'TR-90',gen:'Unissex',price:30,old:349,cols:['preto','grafite','chumbo'],w:140,l:53,b:20,t:143,new:0,hot:1,stock:210,desc:'TR-90 injetado, ultraleve e praticamente indestrutível. A melhor relação custo-benefício para giro rápido em balcão.'},
-  {sku:'KO-1006',n:'Optic Nerve',shape:'Hexagonal',mat:'Metal',gen:'Unissex',price:30,old:0,cols:['niquel','grafite','branco'],w:139,l:50,b:21,t:145,new:1,hot:0,stock:54,desc:'Geometria hexagonal em fio de metal de 1.2mm. Ponte reta com apoio em silicone antiderrapante.'},
-  {sku:'KO-1007',n:'Militech',shape:'Aviador',mat:'Metal',gen:'Masculino',price:30,old:0,cols:['grafite','chumbo','niquel'],w:144,l:57,b:15,t:145,new:0,hot:0,stock:130,desc:'Aviador tradicional com haste reta e ponte de barra dupla. Acabamento fosco que disfarça marcas de uso.'},
-  {sku:'KO-1008',n:'Delamain',shape:'Oval',mat:'Titânio',gen:'Unissex',price:30,old:0,cols:['prata','grafite','niquel'],w:137,l:49,b:20,t:142,new:0,hot:0,stock:41,desc:'Oval minimalista em titânio escovado. Aro de perfil reduzido para quem quer a armação quase invisível no rosto.'},
-  {sku:'KO-1009',n:'Voodoo',shape:'Quadrado',mat:'Acetato',gen:'Masculino',price:30,old:529,cols:['preto','fume','chumbo'],w:146,l:55,b:18,t:148,new:0,hot:1,stock:73,desc:'Quadrado largo com aro grosso e haste de 5mm. Presença forte, indicado para rostos largos e quadrados.'},
-  {sku:'KO-1010',n:'Kabuki',shape:'Redondo',mat:'Acetato',gen:'Unissex',price:30,old:0,cols:['cristal','fume','branco'],w:135,l:47,b:22,t:142,new:0,hot:0,stock:158,desc:'Redondo em acetato transparente polido. Ponte alta em chave, referência direta às armações dos anos 60.'},
-  {sku:'KO-1011',n:'Arasaka',shape:'Retangular',mat:'Titânio',gen:'Masculino',price:30,old:0,cols:['preto','grafite','prata'],w:143,l:54,b:17,t:145,new:1,hot:1,stock:22,desc:'Topo de linha. Titânio japonês, dobradiça sem parafuso e revestimento IP resistente a risco. Numerada individualmente.'},
-  {sku:'KO-1012',n:'Silverhand',shape:'Redondo',mat:'Metal',gen:'Unissex',price:30,old:0,cols:['prata','grafite','preto'],w:134,l:46,b:23,t:140,new:0,hot:0,stock:186,desc:'Redondo pequeno com aro de 46mm. Referência retrô, boa saída em público jovem e no e-commerce.'},
-  {sku:'KO-1013',n:'Vermilion',shape:'Gatinho',mat:'Acetato',gen:'Feminino',price:30,old:559,cols:['chumbo','niquel','preto'],w:137,l:52,b:17,t:140,new:0,hot:1,stock:64,desc:'Gatinho pronunciado com detalhe metálico na dobradiça. Peça de vitrine, alto apelo visual.'},
-  {sku:'KO-1014',n:'Trauma Team',shape:'Retangular',mat:'TR-90',gen:'Unissex',price:30,old:0,cols:['preto','chumbo','grafite'],w:141,l:53,b:19,t:143,new:0,hot:0,stock:240,desc:'Entrada de linha em TR-90 com haste flexível 180°. Excelente para infantil-juvenil e uso intenso.'},
-  {sku:'KO-1015',n:'Nomad',shape:'Hexagonal',mat:'Acetato',gen:'Unissex',price:30,old:0,cols:['fume','chumbo','cristal'],w:140,l:51,b:20,t:145,new:1,hot:0,stock:88,desc:'Hexagonal em acetato com nuance mesclada — cada peça tem um veio levemente diferente.'},
-  {sku:'KO-1016',n:'Halo',shape:'Oval',mat:'Metal',gen:'Feminino',price:30,old:0,cols:['niquel','branco','prata'],w:133,l:48,b:21,t:140,new:0,hot:0,stock:0,desc:'Oval delicado em fio de metal fino com plaquetas de silicone. Peso de apenas 9 gramas.'},
   {sku:'KO-2001',n:'Aviator Classic',shape:'Aviador',mat:'Metal',gen:'Unissex',price:899,old:1299,cols:['dourado'],w:140,l:58,b:14,t:135,new:1,hot:1,stock:34,desc:'Aviador Ray-Ban RB3025 original, armação em metal dourado com lente G-15 verde clássica. Ponte dupla, hastes finas e acabamento italiano — o modelo que definiu o formato aviador.',imgs:['assets/products/rb3025-aviador-dourado-1.jpeg','assets/products/rb3025-aviador-dourado-2.jpeg']},
   {sku:'KO-2002',n:'Wayfarer Original',shape:'Wayfarer',mat:'Acetato',gen:'Unissex',price:799,old:1099,cols:['preto'],w:143,l:50,b:22,t:150,new:1,hot:1,stock:41,desc:'Ray-Ban RB2140 Original Wayfarer em acetato preto brilhante com lente G-15 verde. O ícone atemporal do design óptico, do mesmo jeito desde 1952.',imgs:['assets/products/rb2140-wayfarer-preto-1.jpeg','assets/products/rb2140-wayfarer-preto-2.jpeg']},
   {sku:'KO-2003',n:'Wayfarer Bicolor',shape:'Wayfarer',mat:'Acetato',gen:'Unissex',price:849,old:1149,cols:['brancopreto'],w:143,l:50,b:22,t:150,new:1,hot:0,stock:19,desc:'Ray-Ban RB2140 Original Wayfarer em edição bicolor — parte superior branca e frente preta, com lente G-15 verde. Visual retrô com contraste marcante.',imgs:['assets/products/rb2140-wayfarer-branco-preto-1.jpeg']},
