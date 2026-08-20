@@ -947,24 +947,19 @@ async function payWithInfinitePay(e){
   if(!session){ closeAll(true); show('login'); toast('Entre ou crie uma conta para finalizar a compra.'); return; }
   if(mode==='atacado'&&u<MIN_B2B){ toast(`Faltam ${MIN_B2B-u} peça(s) para o pedido mínimo de atacado.`); return; }
   const custEmail=session.user.email;
-  const d=tierDiscount();
-  const items=cart.map(i=>{
-    const p=P(i.sku);
-    return { quantity:i.qty, price:Math.round(p.price*(1-d)*100), description:`${p.n} (${p.sku}) - ${COLORS[i.color].n}` };
-  });
-  const sh=shipping();
-  if(sh>0)items.push({ quantity:1, price:Math.round(sh*100), description:'Frete' });
-  const order_nsu=(crypto.randomUUID?crypto.randomUUID():'ko-'+Date.now());
   const redirect_url=location.href.split('?')[0].split('#')[0];
   if(btn)btn.disabled=true;
   try{
-    const r=await fetch('https://api.checkout.infinitepay.io/links',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({ handle:INFINITEPAY_HANDLE, items, order_nsu, redirect_url, customer:{ email:custEmail } })
+    // Preço, desconto e frete são recalculados no servidor (create-checkout) a
+    // partir do catálogo real — o navegador nunca é a fonte de verdade do valor cobrado.
+    const { data, error } = await sb.functions.invoke('create-checkout',{
+      body:{ cart:cart.map(i=>({sku:i.sku,color:i.color,qty:i.qty})), mode, redirect_url }
     });
-    const data=await r.json();
-    if(!r.ok||!data.url){ toast('Não foi possível iniciar o pagamento.'); if(btn)btn.disabled=false; return; }
-    localStorage.setItem('kiroshi_order_'+order_nsu, JSON.stringify({ cart, mode, total:grandTotal(), email:custEmail, user_id:session.user.id }));
+    if(error||!data||data.error||!data.url){
+      toast(data&&data.error?data.error:'Não foi possível iniciar o pagamento.');
+      if(btn)btn.disabled=false; return;
+    }
+    localStorage.setItem('kiroshi_order_'+data.order_nsu, JSON.stringify({ cart, mode, total:data.total, email:custEmail, user_id:session.user.id }));
     window.location.href=data.url;
   }catch(err){
     toast('Erro ao conectar com o InfinitePay.');
